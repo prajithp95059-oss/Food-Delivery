@@ -1,0 +1,20 @@
+/* Stackly Eats preloader – delivery scooter */
+#preloader{position:fixed;inset:0;z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;background:#1E4D3B;transition:opacity .55s ease,visibility .55s ease}
+#preloader.done{opacity:0;visibility:hidden;pointer-events:none}
+#preloader .pl-scene{position:relative;width:min(320px,80vw);height:150px;overflow:hidden}
+#preloader .pl-ride{position:absolute;left:50%;bottom:26px;width:150px;margin-left:-75px;animation:pl-bounce .5s ease-in-out infinite}
+#preloader .pl-ride svg{width:100%;height:auto;display:block;overflow:visible}
+#preloader .pl-wheel{transform-box:fill-box;transform-origin:center;animation:pl-spin .6s linear infinite}
+#preloader .pl-road{position:absolute;left:0;right:0;bottom:22px;height:4px;background:repeating-linear-gradient(90deg,#FBF3E2 0 26px,transparent 26px 46px);background-size:46px 4px;animation:pl-road .45s linear infinite;opacity:.85}
+#preloader .pl-speed{position:absolute;left:8%;height:4px;border-radius:4px;background:#FBF3E2;opacity:.5;animation:pl-wind 1s linear infinite}
+#preloader .pl-speed.s1{top:52px;width:46px}
+#preloader .pl-speed.s2{top:76px;width:30px;animation-delay:.35s}
+#preloader .pl-speed.s3{top:98px;width:54px;animation-delay:.7s}
+#preloader .pl-brand{height:54px;width:auto;max-width:70vw;background:none;object-fit:contain;animation:pl-fade 1.6s ease-in-out infinite}
+body.pl-lock{overflow:hidden}
+@keyframes pl-spin{to{transform:rotate(360deg)}}
+@keyframes pl-bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes pl-road{to{background-position:-46px 0}}
+@keyframes pl-wind{0%{transform:translateX(230px);opacity:0}20%{opacity:.5}100%{transform:translateX(-60px);opacity:0}}
+@keyframes pl-fade{0%,100%{opacity:.75}50%{opacity:1}}
+@media (prefers-reduced-motion:reduce){#preloader .pl-wheel,#preloader .pl-ride,#preloader .pl-road,#preloader .pl-speed{animation-duration:3s}}
